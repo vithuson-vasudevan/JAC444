@@ -1,45 +1,41 @@
-package discountsystem;
-import java.util.*;
-/*
-This file is a work in progress.
-Date: October 1st 2017
-Author: @Vithuson
-*/
+package discountsystems;
 
-public class Customer extends Visit {
+public class Customer {
+   
     private String name;
-    private String memberType;
     private boolean member = false;
+    private String memberType;
     
-    
-    public Customer(String name){
-        name = this.name; 
-       // this.memberType = null;
-        //this.member = false; 
+    Customer(String name){
+        this.name = name;
+        this.memberType = null;
     }
     
     public String getName(){
-        return name;
-    }
-    
-    public boolean isMember(){    
-        return member;
-    }
-
-    public void setMember(boolean member){
-        this.member = member;
+        return this.name;
     }
     
     public String getMemberType(){
-        return memberType;
+        return this.memberType;
     }
     
     public void setMemberType(String type){
-        this.memberType = type;
+        if(type.equals("Premium") || type.equals("Gold") || type.equals("Silver")){
+            this.memberType = type;
+            this.member = true;
+        }
+        else {
+            this.memberType = "None";
+            System.out.println("Invalid member type.");
+        }
+    }
+    
+    public boolean isMember(){
+        return this.member;
     }
     
     public String toString(){
-        //work in progress
+        //this method is left empty because it will not be used
         return null;
-    }
+    }    
 }
